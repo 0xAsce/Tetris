@@ -18,7 +18,6 @@ Block Game::getrandomblock() {
 	blocks.erase(blocks.begin() + randomindex);
 	return block;
 }
-
 std::vector<Block> Game::getallblocks() {
 	return { IBlock(),JBlock(),LBlock(),OBlock(),SBlock(),TBlock(),ZBlock() };
 }
@@ -62,6 +61,7 @@ void Game::moveblockdown() {
 	currentblock.Move(1, 0);
 	if (isblockoutside()) {
 		currentblock.Move(-1, 0);
+		lockblock();
 	}
 }
 
@@ -79,4 +79,13 @@ void Game::rotateblock() {
 	if (isblockoutside()) {
 		currentblock.undorotation();
 	}
+}
+
+void Game::lockblock() {
+	std::vector<Position> tiles = currentblock.getcellposition();
+	for (Position item : tiles) {
+		grid.grid[item.row][item.column] = currentblock.id;
+	}
+	currentblock = nextblock;
+	nextblock = getrandomblock();
 }

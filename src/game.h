@@ -16,6 +16,7 @@ public:
 private:
 	bool isblockoutside();
 	void rotateblock();
+	void lockblock();
 	std::vector<Block> blocks;
 	Block currentblock;
 	Block nextblock;
