@@ -35,3 +35,10 @@ void Grid::Draw() {
 		}
 	}
 }
+
+bool Grid::iscellout(int row, int column) {
+	if (row >= 0 && row < numrows && column >= 0 && column < numcols) {
+		return false;
+	}
+	return true;
+}

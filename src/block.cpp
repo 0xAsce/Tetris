@@ -29,3 +29,16 @@ std::vector<Position> Block::getcellposition() {
 	}
 	return movetiles;
 }
+void Block::rotate() {
+	rotationstate++;
+	if (rotationstate == (int)cells.size()) {
+		rotationstate = 0;
+	}
+}
+
+void Block::undorotation() {
+	rotationstate--;
+	if (rotationstate == -1) {
+		rotationstate = cells.size() - 1;
+	}
+}

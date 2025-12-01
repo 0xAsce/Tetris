@@ -6,6 +6,7 @@ public:
 	Grid();
 	void initialize();
 	void print();
+	bool iscellout(int row,int column);
 	int grid[20][10];
 	void Draw();
 private:

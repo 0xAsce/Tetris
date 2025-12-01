@@ -12,6 +12,8 @@ public:
 	void Move(int rows, int columns);
 	std::vector<Position> getcellposition();
 	int id;
+	void undorotation();
+	void rotate();
 	std::map<int, std::vector<Position>> cells;
 
 private:
