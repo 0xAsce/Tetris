@@ -1,2 +1,2 @@
 # Tetris
-Tetris simple version with raylib 
+a simple Tetris version made with raylib
